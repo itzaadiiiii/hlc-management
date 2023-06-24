@@ -1,0 +1,120 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock title %} Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body class="bg-dark text-white mx-10 mt-5 my-5" style="font-weight: bold; font-size: 30px; font-family:papyrus">
+   
+    <div class="container-fluid">
+    <div>
+
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg my-5">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li class="nav-item" style="color: blueviolet; font-weight:bolder">
+          <a class="nav-link active"  href="{% url 'showemp' %}">HLCompany</a>
+        </li>
+        <li class="nav-item dropdown text-white px-3">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true" >
+            Department
+          </a>
+          <ul class="dropdown-menu dropdown-hover">
+            <li style="color:white;"><a class="dropdown-item" href="{% url 'adddept' %}">Add Department</a></li>
+            <li style="color:white;"><a class="dropdown-item" href="{% url 'showdept' %}">Show All Departments</a></li>
+            <li ><hr class="dropdown-divider"></li>
+              </ul>
+        <li class="nav-item dropdown text-white px-3">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true" >
+            Employee Details
+          </a>
+          <ul class="dropdown-menu dropdown-hover">
+            <li style="color:white;"><a class="dropdown-item" href="{% url 'addemp' %}">Add Employee</a></li>
+            <li style="color:white;"><a class="dropdown-item" href="{% url 'showemp' %}">Show All Employee</a></li>
+            <li ><hr class="dropdown-divider"></li>
+            <li style="color:white;"><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item px-3">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search" action="/base" method="post" >
+        {% csrf_token %}
+        <label for="search"></label>
+        <input class="form-control me-2" name="search" type="text" placeholder="Search">
+        <button type="submit" value="search" class="btn btn-dark btn btn-outline-success" >Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>
+
+  {% for msg in messages %}
+  <div class="alert alert-dark alert-dismissible fade show" style="border-radius: 20px; font-weight:40px" role="alert">
+    <center><strong>Hey !</strong> {{msg}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </center>
+  </div>
+  {% endfor %}
+
+<div id="carouselExampleFade" class="carousel slide carousel-fade my-5">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" class="d-block w-100" alt="There's problem in picture loading">
+      </div>
+      <div class="carousel-item">
+        <img src="https://images.unsplash.com/photo-1562813733-b31f71025d54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" class="d-block w-100" alt="Theres problem in loading image 2nd">
+      </div>
+      <div class="carousel-item">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="d-block w-100" alt="Theres problem in loading image 3rd">
+    </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+
+      
+    
+
+      {% block body %}
+      {% endblock body %}
+
+    </div>
+</body>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+    
+    window.setTimeout(function() {
+        $(".alert").fadeTo(1000, 0).slideUp(1000, function(){
+            $(this).remove(); 
+        });
+    }, 5000);
+    
+    });
+    </script>
+
+</html>

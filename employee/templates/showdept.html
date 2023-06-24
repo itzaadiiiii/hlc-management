@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block body %}
+<div class="mx-3">
+<table class="table table-dark table-hover ">
+    <thead style="font-size:x-large">
+      <tr>
+        <th scope="col">Department  ID</th>
+        <th scope="col">Department Name</th>
+        <th scope="col">UPDATE</th>
+        <th scope="col">DELETE</th>
+     
+      </tr>
+    </thead>
+    <tbody>
+        {% for d in dept %}
+      <tr>
+        <th class="text-center">{{ d.id}}</th>
+        <td>{{ d.name}}</td>
+        <td><a href ="{%url 'updatedept' d.id %}" class = "btn btn-waring btn btn-outline-success">UPDATE</a> </td>
+        <td><a href ="{%url 'deletedept' d.id %}" class = "btn btn-danger btn btn-outline-success">DELETE</a> </td>
+       
+      </tr>
+      {% endfor %}
+    </tbody>
+ 
+</table>
+</div>
+{% endblock body%}

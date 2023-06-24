@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block title%} add employee{% endblock title%}
+
+{% block body %}
+
+<div>
+    <form method = "post" class="bg-dark text-white mx-3 my-5 p-2" style="font-size: medium;">
+        {% csrf_token %}
+        {{form|crispy}}
+
+        <button type="submit" value="ADD EMPLOYEE" class="btn btn-warning btn btn-outline-success">ADD EMPLOYEE</button>
+    </form>
+    
+</div>
+{% endblock body %}
