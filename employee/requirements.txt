@@ -1,0 +1,15 @@
+asgiref==3.7.2
+crispy-bootstrap5==0.7
+Django==4.2.2
+django-crispy-forms==2.0
+mysqlclient==2.2.0
+sqlparse==0.4.4
+tzdata==2023.3
+
+
+
+
+#to install all packages
+# to put all packages in requirement.txt
+# pip freeze > requirement.text
+# pip install -r requirements.txt

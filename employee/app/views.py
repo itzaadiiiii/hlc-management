@@ -1,9 +1,11 @@
 from django.shortcuts import render,redirect
 from .models import *
 from .forms import *
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
 from django.db.models import *
+
+
 # Create your views here.
 
 
